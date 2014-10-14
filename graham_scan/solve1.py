@@ -47,5 +47,4 @@ def graham_scan_1(points):
     first_point = points[0]
     points = points[1:]
     points.sort(angle_cmp(first_point), reverse=True)
-    ans = reduce(convex_hull, points, [first_point])
-    return ans
+    return reduce(convex_hull, points, [first_point])
