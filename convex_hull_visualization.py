@@ -1,11 +1,10 @@
 from graham_scan.solve1 import graham_scan_1
 from graham_scan.solve2 import graham_scan_2
+from monotone_chain.solve import monotone_chain
+from jarvis_march.solve import jarvis_march
 
-implementation = [graham_scan_1, graham_scan_2]
-solve = 1
+algorithms = [graham_scan_1, graham_scan_2, monotone_chain, jarvis_march]
 
-# WRITTEN BELOW SOURCE CODE I FOUND IN GOOGLE
-# THIS CODE ALLOWS VISUAL TESTING PROGRAMS
 try:
     import pygame
     from pygame.color import *
@@ -13,7 +12,7 @@ try:
 
     pygame.init()
 
-    caption = 'Convex hull solver demo using Graham Scan'
+    caption = 'Visualization for convex hulls'
     resolution = (600, 600)
     text = ['Click mouse to draw dots',
             'Press <Space> to reset',
@@ -36,7 +35,8 @@ try:
             elif event.type == MOUSEBUTTONDOWN:
                 coords.append(event.pos)
                 if len(coords) >= 3:
-                    segments = implementation[solve](coords)
+                    segments = algorithms[3](coords)
+                    print segments
             elif event.type == KEYDOWN:
                 if event.key == K_SPACE:
                     segments = []
