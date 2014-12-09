@@ -12,4 +12,5 @@ def convex_hull(hull, point):
 
 def monotone_chain(points):
     points = sorted(points)
-    return reduce(convex_hull, points, []) + reduce(convex_hull, reversed(points), [])[1:-1]
+    return (reduce(convex_hull, points, []) +
+            reduce(convex_hull, reversed(points), [])[1:-1])

@@ -2,8 +2,10 @@ from graham_scan.solve1 import graham_scan_1
 from graham_scan.solve2 import graham_scan_2
 from monotone_chain.solve import monotone_chain
 from jarvis_march.solve import jarvis_march
+from quick_hull.solve import quick_hull
 
-algorithms = [graham_scan_1, graham_scan_2, monotone_chain, jarvis_march]
+algorithms = [graham_scan_1, graham_scan_2, monotone_chain, jarvis_march, quick_hull]
+number_algorithm = 4
 
 try:
     import pygame
@@ -35,7 +37,7 @@ try:
             elif event.type == MOUSEBUTTONDOWN:
                 coords.append(event.pos)
                 if len(coords) >= 3:
-                    segments = algorithms[3](coords)
+                    segments = algorithms[number_algorithm](coords)
                     print segments
             elif event.type == KEYDOWN:
                 if event.key == K_SPACE:
